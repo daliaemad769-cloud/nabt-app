@@ -1,7 +1,11 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image'; // استدعاء وسم الصور الذكي
 import { motion } from 'framer-motion';
+
+// تحويل وسم Image لـ وسم متحرك
+const MotionImage = motion(Image);
 
 export default function RosemaryPage() {
   return (
@@ -33,7 +37,6 @@ export default function RosemaryPage() {
                 <h2 className="text-2xl md:text-4xl font-bold text-[#1E4D2B] font-serif m-0">
                   أوراق الروزماري الطبيعية
                 </h2>
-                {/* تقدري تغيري رقم ٥٠ لأي رقم تاني من هنا لو السعر مختلف */}
                 <span className="text-xl md:text-2xl font-bold text-[#53705B] bg-white shadow-sm border border-[#E8EDE6] px-5 py-1.5 rounded-xl">
                   ٢٣ ج.م
                 </span>
@@ -58,7 +61,7 @@ export default function RosemaryPage() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-white shadow-sm border border-[#E8EDE6] flex items-center justify-center flex-shrink-0 text-[#53705B]">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138z"/></svg>
                 </div>
                 <div>
                   <h3 className="font-bold text-[#1E4D2B] text-base">عطرية وطازجة</h3>
@@ -94,11 +97,13 @@ export default function RosemaryPage() {
 
           {/* الصور (الشمال) */}
           <div className="lg:col-span-5 bg-gradient-to-b from-white to-[#F2F5F3] p-5 rounded-[2rem] border border-[#E8EDE6] shadow-sm flex flex-col relative z-10">
-            {/* الصورة الكبيرة الرئيسية */}
+            {/* الصورة الكبيرة الرئيسية المحدثة */}
             <div className="relative w-full h-[280px] md:h-[350px] rounded-2xl flex items-center justify-center overflow-hidden bg-gradient-to-tr from-[#FCFBF8] via-transparent to-white">
-              <motion.img 
+              <MotionImage 
                 src="/Ros-lo.jpg" 
                 alt="أوراق الروزماري الرئيسية" 
+                width={600}
+                height={450}
                 className="w-full h-full object-cover mix-blend-normal contrast-[1.02]"
                 animate={{ scale: [1, 1.02, 1] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -106,16 +111,16 @@ export default function RosemaryPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#F2F5F3]/30 via-transparent to-transparent pointer-events-none"></div>
             </div>
             
-            {/* الجاليري */}
+            {/* الجاليري المحدث */}
             <div className="grid grid-cols-3 gap-3 md:gap-4 mt-4">
               <div className="relative aspect-[4/3] bg-[#FCFBF8] rounded-xl overflow-hidden border-2 border-transparent hover:border-[#53705B] transition-all shadow-sm cursor-pointer group">
-                <img src="/Ros1pic.jpeg" alt="صورة روزماري 1" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <Image src="/Ros1pic.jpeg" alt="صورة روزماري 1" width={200} height={150} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div className="relative aspect-[4/3] bg-[#FCFBF8] rounded-xl overflow-hidden border-2 border-transparent hover:border-[#53705B] transition-all shadow-sm cursor-pointer group">
-                <img src="/Ros2pic.png" alt="صورة روزماري 2" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <Image src="/Ros2pic.png" alt="صورة روزماري 2" width={200} height={150} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div className="relative aspect-[4/3] bg-[#FCFBF8] rounded-xl overflow-hidden border-2 border-transparent hover:border-[#53705B] transition-all shadow-sm cursor-pointer group">
-                <img src="/Ros3pic.png" alt="صورة روزماري 3" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <Image src="/Ros3pic.png" alt="صورة روزماري 3" width={200} height={150} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
             </div>
           </div>

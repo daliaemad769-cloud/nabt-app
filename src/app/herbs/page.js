@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image'; // استدعاء وسم الصور الذكي من Next.js
 import { motion } from 'framer-motion';
 
 export default function HerbsPage() {
@@ -74,15 +75,12 @@ export default function HerbsPage() {
               href={product.link} 
               className="w-full h-72 bg-[#F9F7F3] rounded-2xl mb-6 overflow-hidden relative border border-[#E8EDE6] block"
             >
-              <img 
+              <Image 
                 src={product.image} 
                 alt={product.title} 
+                width={500} // أبعاد مناسبة للضغط والتحميل فائق السرعة
+                height={500}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                // في حال حدوث أي خطأ في اسم الصورة يظهر الـ Placeholder الشيك ده تلقائياً
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=500";
-                }}
               />
             </Link>
 

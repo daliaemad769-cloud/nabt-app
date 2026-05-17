@@ -1,7 +1,11 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image'; // استدعاء وسم الصور الذكي
 import { motion } from 'framer-motion';
+
+// تحويل وسم Image لـ وسم متحرك
+const MotionImage = motion(Image);
 
 export default function LavenderPage() {
   return (
@@ -33,7 +37,7 @@ export default function LavenderPage() {
                 <h2 className="text-2xl md:text-4xl font-bold text-[#1E4D2B] font-serif m-0">
                   أزهار اللافندر الطبيعية
                 </h2>
-                {/* تقدري تغيري رقم ١٣٠ لأي رقم تاني من هنا لو السعر مختلف */}
+                {/* تقدري تغيري رقم ٥٠ لأي رقم تاني من هنا لو السعر مختلف */}
                 <span className="text-xl md:text-2xl font-bold text-[#7D5592] bg-white shadow-sm border border-[#E8EDE6] px-5 py-1.5 rounded-xl">
                   ٥٠ ج.م
                 </span>
@@ -94,11 +98,13 @@ export default function LavenderPage() {
 
           {/* الصور (الشمال) */}
           <div className="lg:col-span-5 bg-gradient-to-b from-white to-[#F6F2F8] p-5 rounded-[2rem] border border-[#E8EDE6] shadow-sm flex flex-col relative z-10">
-            {/* الصورة الكبيرة الرئيسية (LLav.png) */}
+            {/* الصورة الكبيرة الرئيسية المحدثة بوسم Next.js */}
             <div className="relative w-full h-[280px] md:h-[350px] rounded-2xl flex items-center justify-center overflow-hidden bg-gradient-to-tr from-[#FCFBF8] via-transparent to-white">
-              <motion.img 
+              <MotionImage 
                 src="/LLav.png" 
                 alt="أزهار اللافندر الكبيرة" 
+                width={600}
+                height={450}
                 className="w-full h-full object-cover mix-blend-normal contrast-[1.02]"
                 animate={{ scale: [1, 1.02, 1] }}
                 transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -106,16 +112,16 @@ export default function LavenderPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#F6F2F8]/20 via-transparent to-transparent pointer-events-none"></div>
             </div>
             
-            {/* التعديل هنا: الجاليري متناسق بمقاسات ثابتة (aspect-ratio) بدل الطول العشوائي */}
+            {/* الجاليري المحدث بوسم Next.js */}
             <div className="grid grid-cols-3 gap-3 md:gap-4 mt-4">
               <div className="relative aspect-[4/3] bg-[#FCFBF8] rounded-xl overflow-hidden border-2 border-transparent hover:border-[#7D5592] transition-all shadow-sm cursor-pointer group">
-                <img src="/Lav.png" alt="صورة 1" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <Image src="/Lav.png" alt="صورة 1" width={200} height={150} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div className="relative aspect-[4/3] bg-[#FCFBF8] rounded-xl overflow-hidden border-2 border-transparent hover:border-[#7D5592] transition-all shadow-sm cursor-pointer group">
-                <img src="/pic4L.jpg" alt="صورة 2" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <Image src="/pic4L.jpg" alt="صورة 2" width={200} height={150} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
               <div className="relative aspect-[4/3] bg-[#FCFBF8] rounded-xl overflow-hidden border-2 border-transparent hover:border-[#7D5592] transition-all shadow-sm cursor-pointer group">
-                <img src="/pic2L.jpg" alt="صورة 3" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <Image src="/pic2L.jpg" alt="صورة 3" width={200} height={150} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
               </div>
             </div>
           </div>

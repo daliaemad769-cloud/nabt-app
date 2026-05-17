@@ -1,7 +1,11 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image'; // استدعاء وسم الصور الذكي من Next.js
 import { motion } from 'framer-motion';
+
+// تحويل وسم Image لـ وسم متحرك عشان نحافظ على الأنيميشن
+const MotionImage = motion(Image);
 
 export default function AloeVeraGelPage() {
   return (
@@ -35,7 +39,7 @@ export default function AloeVeraGelPage() {
           <div className="bg-white p-6 rounded-2xl shadow-sm border border-[#F3EFEA] mb-8">
             <h3 className="text-xl font-bold text-[#1E4D2B] mb-4 border-b border-[#C8DBD0] pb-2 inline-block">💆‍♀️ طريقة الاستخدام</h3>
             <p className="text-gray-600 leading-relaxed">
-              <strong>للبشرة:</strong> توضع كمية مناسبة على بشرة نظيفة وجافة ويدلك برفق حتى يمتصه الجلد تماماً. يفضل استخدامه مرتين يومياً. <br/>
+              <strong>لالبشرة:</strong> توضع كمية مناسبة على بشرة نظيفة وجافة ويدلك برفق حتى يمتصه الجلد تماماً. يفضل استخدامه مرتين يومياً. <br/>
               <strong>للشعر:</strong> يوزع بالتساوي على شعر رطب من الجذور حتى الأطراف لترطيبه، أو كقناع للفروة قبل الاستحمام بـ 20 دقيقة.
             </p>
           </div>
@@ -48,24 +52,26 @@ export default function AloeVeraGelPage() {
         {/* النص الشمال: جاليري الصور */}
         <div className="w-full sticky top-10 flex flex-col gap-4">
           
-          {/* الصورة الرئيسية الكبيرة */}
+          {/* الصورة الرئيسية الكبيرة المحدثة */}
           <div className="w-full h-[380px] bg-[#EAF2EC] rounded-3xl border border-[#F3EFEA] flex items-center justify-center shadow-inner overflow-hidden relative">
-            <motion.img 
+            <MotionImage 
               src="/Gell.jpg" 
               alt="جل الصبار الطبيعي النقي" 
+              width={600}
+              height={600}
               className="w-full h-full object-cover mix-blend-normal"
               animate={{ scale: [1, 1.03, 1] }}
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
 
-          {/* الصور المصغرة (Thumbnails) */}
+          {/* الصور المصغرة المحدثة */}
           <div className="grid grid-cols-2 gap-4">
             <div className="relative aspect-[4/3] bg-[#EAF2EC] rounded-2xl overflow-hidden border-2 border-transparent hover:border-[#4A7C59] transition-all shadow-sm cursor-pointer group">
-              <img src="/Gel2.png" alt="صورة جل الصبار 1" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <Image src="/Gel2.png" alt="صورة جل الصبار 1" width={300} height={225} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div className="relative aspect-[4/3] bg-[#EAF2EC] rounded-2xl overflow-hidden border-2 border-transparent hover:border-[#4A7C59] transition-all shadow-sm cursor-pointer group">
-              <img src="/Gel1.jpeg" alt="صورة جل الصبار 2" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <Image src="/Gel1.jpeg" alt="صورة جل الصبار 2" width={300} height={225} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
           </div>
 

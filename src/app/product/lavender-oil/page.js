@@ -1,7 +1,11 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image'; // استدعاء وسم الصور الذكي
 import { motion } from 'framer-motion';
+
+// تحويل وسم Image لـ وسم متحرك
+const MotionImage = motion(Image);
 
 export default function LavenderOilPage() {
   return (
@@ -48,24 +52,26 @@ export default function LavenderOilPage() {
         {/* النص الشمال: جاليري الصور */}
         <div className="w-full sticky top-10 flex flex-col gap-4">
           
-          {/* الصورة الرئيسية الكبيرة */}
+          {/* الصورة الرئيسية الكبيرة المحدثة */}
           <div className="w-full h-[380px] bg-[#F6F2F8] rounded-3xl border border-[#F3EFEA] flex items-center justify-center shadow-inner overflow-hidden relative">
-            <motion.img 
+            <MotionImage 
               src="/LaPic-1.png" 
               alt="زيت اللافندر النقي" 
+              width={600}
+              height={600}
               className="w-full h-full object-cover mix-blend-normal"
               animate={{ scale: [1, 1.03, 1] }}
               transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
 
-          {/* الصور المصغرة (Thumbnails) */}
+          {/* الصور المصغرة المحدثة */}
           <div className="grid grid-cols-2 gap-4">
             <div className="relative aspect-[4/3] bg-[#F6F2F8] rounded-2xl overflow-hidden border-2 border-transparent hover:border-[#7D5592] transition-all shadow-sm cursor-pointer group">
-              <img src="/LaPic-2.jpg" alt="صورة اللافندر 1" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <Image src="/LaPic-2.jpg" alt="صورة اللافندر 1" width={300} height={225} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
             <div className="relative aspect-[4/3] bg-[#F6F2F8] rounded-2xl overflow-hidden border-2 border-transparent hover:border-[#7D5592] transition-all shadow-sm cursor-pointer group">
-              <img src="/Hello.jpeg" alt="صورة اللافندر 2" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+              <Image src="/Hello.jpeg" alt="صورة اللافندر 2" width={300} height={225} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
             </div>
           </div>
 

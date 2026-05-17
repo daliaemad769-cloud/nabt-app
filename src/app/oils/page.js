@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image'; // استدعاء وسم الصور الذكي من Next.js لتسريع الموقع
 
 export default function OilsPage() {
   return (
@@ -21,11 +22,12 @@ export default function OilsPage() {
         
         {/* ================= كارت 1: جل الصبار ================= */}
         <div className="bg-white rounded-3xl shadow-sm border border-[#E8EDE6] p-4 flex flex-col hover:shadow-md transition-shadow h-full group">
-          {/* التعديل هنا: غلفنا بوكس الصورة بـ Link */}
           <Link href="/product/aloe-vera" className="relative w-full aspect-square rounded-2xl overflow-hidden mb-4 bg-[#FCFBF8] block">
-            <img 
+            <Image 
               src="/gel.png" 
               alt="جل الصبار الطبيعي" 
+              width={400}
+              height={400}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
             />
           </Link>
@@ -48,11 +50,13 @@ export default function OilsPage() {
 
         {/* ================= كارت 2: زيت البابونج ================= */}
         <div className="bg-white rounded-3xl shadow-sm border border-[#E8EDE6] p-4 flex flex-col hover:shadow-md transition-shadow h-full group">
-          {/* التعديل هنا: غلفنا بوكس الصورة بـ Link */}
-          <Link href="/product/chamomile" className="relative w-full aspect-square rounded-2xl overflow-hidden mb-4 bg-[#FCFBF8] block">
-            <img 
+          {/* تم تعديل الرابط هنا ليوجه لصفحة الزيت الصحيحة */}
+          <Link href="/product/chamomile-oil" className="relative w-full aspect-square rounded-2xl overflow-hidden mb-4 bg-[#FCFBF8] block">
+            <Image 
               src="/chamomile-oil.png" 
               alt="زيت البابونج" 
+              width={400}
+              height={400}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
             />
           </Link>
@@ -67,7 +71,8 @@ export default function OilsPage() {
               <span>700</span>
               <span>ج.م</span>
             </div>
-            <Link href="/product/chamomile" className="text-[#7D5592] hover:text-[#1E4D2B] text-sm font-bold flex items-center gap-1 transition-colors">
+            {/* تم تعديل الرابط هنا ليوجه لصفحة الزيت الصحيحة */}
+            <Link href="/product/chamomile-oil" className="text-[#7D5592] hover:text-[#1E4D2B] text-sm font-bold flex items-center gap-1 transition-colors">
               التفاصيل &larr;
             </Link>
           </div>
@@ -75,11 +80,13 @@ export default function OilsPage() {
 
         {/* ================= كارت 3: زيت اللافندر ================= */}
         <div className="bg-white rounded-3xl shadow-sm border border-[#E8EDE6] p-4 flex flex-col hover:shadow-md transition-shadow h-full group">
-          {/* التعديل هنا: غلفنا بوكس الصورة بـ Link */}
-          <Link href="/product/lavender" className="relative w-full aspect-square rounded-2xl overflow-hidden mb-4 bg-[#FCFBF8] block">
-            <img 
+          {/* تم تعديل الرابط هنا ليوجه لصفحة الزيت الصحيحة */}
+          <Link href="/product/lavender-oil" className="relative w-full aspect-square rounded-2xl overflow-hidden mb-4 bg-[#FCFBF8] block">
+            <Image 
               src="/lavender-oil.png" 
               alt="زيت اللافندر" 
+              width={400}
+              height={400}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
             />
           </Link>
@@ -94,7 +101,8 @@ export default function OilsPage() {
               <span>55</span>
               <span>ج.م</span>
             </div>
-            <Link href="/product/lavender" className="text-[#7D5592] hover:text-[#1E4D2B] text-sm font-bold flex items-center gap-1 transition-colors">
+            {/* تم تعديل الرابط هنا ليوجه لصفحة الزيت الصحيحة */}
+            <Link href="/product/lavender-oil" className="text-[#7D5592] hover:text-[#1E4D2B] text-sm font-bold flex items-center gap-1 transition-colors">
               التفاصيل &larr;
             </Link>
           </div>
@@ -102,11 +110,13 @@ export default function OilsPage() {
 
         {/* ================= كارت 4: زيت الروزماري ================= */}
         <div className="bg-white rounded-3xl shadow-sm border border-[#E8EDE6] p-4 flex flex-col hover:shadow-md transition-shadow h-full group">
-          {/* التعديل هنا: غلفنا بوكس الصورة بـ Link */}
-          <Link href="/product/rosemary" className="relative w-full aspect-square rounded-2xl overflow-hidden mb-4 bg-[#FCFBF8] block">
-            <img 
+          {/* تم تعديل الرابط هنا ليوجه لصفحة الزيت الصحيحة */}
+          <Link href="/product/rosemary-oil" className="relative w-full aspect-square rounded-2xl overflow-hidden mb-4 bg-[#FCFBF8] block">
+            <Image 
               src="/rosemary-oil.png" 
               alt="زيت الروزماري" 
+              width={400}
+              height={400}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
             />
           </Link>
@@ -121,7 +131,8 @@ export default function OilsPage() {
               <span>250</span>
               <span>ج.م</span>
             </div>
-            <Link href="/product/rosemary" className="text-[#7D5592] hover:text-[#1E4D2B] text-sm font-bold flex items-center gap-1 transition-colors">
+            {/* تم تعديل الرابط هنا ليوجه لصفحة الزيت الصحيحة */}
+            <Link href="/product/rosemary-oil" className="text-[#7D5592] hover:text-[#1E4D2B] text-sm font-bold flex items-center gap-1 transition-colors">
               التفاصيل &larr;
             </Link>
           </div>

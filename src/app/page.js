@@ -1,18 +1,23 @@
 "use client";
 
 import Link from 'next/link';
+import Image from 'next/image'; // استدعاء وسم الصور الذكي
 import { motion } from 'framer-motion';
 
 export default function Home() {
   return (
     <main className="relative bg-[#FCFBF8] font-sans" dir="rtl">
       
-      {/* 1. قسم الصورة الأولى (حقل الزرع) - ثابت في مكانه كخلفية */}
+      {/* 1. قسم الصورة الأولى (حقل الزرع) */}
       <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/nabt-hero.jpg')" }} 
-        ></div>
+        {/* الصورة الذكية بدل الخلفية العادية */}
+        <Image 
+          src="/nabt-hero.jpg" 
+          alt="نبت - الطبيعة" 
+          fill 
+          priority // مهم جداً عشان دي أول صورة بتظهر فبتحمل فوراً
+          className="object-cover object-center" 
+        />
         {/* تظليل أسود فوق الزرع */}
         <div className="absolute inset-0 bg-black/50 z-10"></div> 
         
@@ -45,10 +50,13 @@ export default function Home() {
           maskImage: 'linear-gradient(to bottom, transparent, black 25%)',
         }}
       >
-        <div 
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/logo..jpg')" }} 
-        ></div>
+        {/* الصورة الذكية بدل الخلفية العادية */}
+        <Image 
+          src="/logo..jpg" 
+          alt="رشفة دافئة" 
+          fill 
+          className="object-cover object-center" 
+        />
         
         <div className="absolute inset-0 bg-black/50 z-10"></div> 
 
@@ -74,7 +82,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 3. قسم التصنيفات (الدوائر) - تم إضافة الصور داخل الدوائر */}
+      {/* 3. قسم التصنيفات (الدوائر) */}
       <div className="relative z-20 bg-[#FCFBF8] py-32 px-6 w-full border-t border-[#F3EFEA]">
         <div className="max-w-7xl mx-auto text-center">
           
@@ -90,32 +98,42 @@ export default function Home() {
           
           <div className="flex flex-col md:flex-row justify-center items-center gap-16 md:gap-40">
             
-            {/* زرار الأعشاب - صورة 11.png */}
+            {/* زرار الأعشاب */}
             <Link href="/herbs" className="group flex flex-col items-center cursor-pointer">
               <motion.div 
                 whileHover={{ scale: 1.05 }}
-                className="w-80 h-80 rounded-full bg-white border-4 border-[#F3EFEA] shadow-lg flex items-center justify-center overflow-hidden group-hover:border-[#1E4D2B] transition-colors duration-300 relative bg-cover bg-center"
-                // تم إضافة الصورة كخلفية هنا
-                style={{ backgroundImage: "url('/11.png')" }}
+                className="w-80 h-80 rounded-full bg-white border-4 border-[#F3EFEA] shadow-lg flex items-center justify-center overflow-hidden group-hover:border-[#1E4D2B] transition-colors duration-300 relative"
               >
-                {/* الأوفرلاي الخفيف اللي بيظهر عند الهوفر يفضل موجود لشكل شيك */}
-                <div className="absolute inset-0 bg-[#1E4D2B] opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                {/* شيلنا النص Placeholder اللي كان موجود */}
+                {/* الصورة الذكية جوه الدائرة */}
+                <Image 
+                  src="/11.png" 
+                  alt="الأعشاب الطبيعية" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 320px"
+                  className="object-cover" 
+                />
+                <div className="absolute inset-0 bg-[#1E4D2B] opacity-0 group-hover:opacity-10 transition-opacity z-10"></div>
               </motion.div>
               <h3 className="mt-10 text-3xl font-bold text-[#1E4D2B] group-hover:text-[#8A8B57] transition-colors">
                 الأعشاب الطبيعية
               </h3>
             </Link>
 
-            {/* زرار الزيوت - صورة 12.png */}
+            {/* زرار الزيوت */}
             <Link href="/oils" className="group flex flex-col items-center cursor-pointer">
               <motion.div 
                 whileHover={{ scale: 1.05 }}
-                className="w-80 h-80 rounded-full bg-white border-4 border-[#F3EFEA] shadow-lg flex items-center justify-center overflow-hidden group-hover:border-[#1E4D2B] transition-colors duration-300 relative bg-cover bg-center"
-                // تم إضافة الصورة كخلفية هنا
-                style={{ backgroundImage: "url('/12.png')" }}
+                className="w-80 h-80 rounded-full bg-white border-4 border-[#F3EFEA] shadow-lg flex items-center justify-center overflow-hidden group-hover:border-[#1E4D2B] transition-colors duration-300 relative"
               >
-                <div className="absolute inset-0 bg-[#1E4D2B] opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                {/* الصورة الذكية جوه الدائرة */}
+                <Image 
+                  src="/12.png" 
+                  alt="الزيوت والعناية" 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 320px"
+                  className="object-cover" 
+                />
+                <div className="absolute inset-0 bg-[#1E4D2B] opacity-0 group-hover:opacity-10 transition-opacity z-10"></div>
               </motion.div>
               <h3 className="mt-10 text-3xl font-bold text-[#1E4D2B] group-hover:text-[#8A8B57] transition-colors">
                 الزيوت والعناية
