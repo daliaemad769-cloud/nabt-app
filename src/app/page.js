@@ -12,7 +12,7 @@ export default function Home() {
       <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
         {/* الصورة الذكية بدل الخلفية العادية */}
         <Image 
-          src="/nabt-hero.jpg" 
+          src="/nabt-hero (1).webp" 
           alt="نبت - الطبيعة" 
           fill 
           priority // مهم جداً عشان دي أول صورة بتظهر فبتحمل فوراً
